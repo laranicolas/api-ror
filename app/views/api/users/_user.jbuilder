@@ -1,1 +1,1 @@
-json.extract! user, :id, :name, :email, :token, :sign_in_count, :last_sign_in_at, :current_sign_in_ip
+json.extract! user, :id, :name, :email, :token
