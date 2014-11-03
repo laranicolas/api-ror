@@ -1,5 +1,6 @@
 module Api
 	class UsersController < ApplicationController
+		skip_before_filter :authenticate_token!, only: [:create]
 
 		def index
 			@users = User.all
