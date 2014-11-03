@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
 	# Include default devise modules. Others available are:
 	# :confirmable, :lockable, :timeoutable and :omniauthable
 
-	has_many :blogPosts, inverse_of: :user, dependent: :destroy, autosave: true
+	has_many :blog_posts, inverse_of: :user, dependent: :destroy, autosave: true
 	has_many :comments, inverse_of: :user, dependent: :destroy, autosave: true
 
 	validates_presence_of :email, :password
