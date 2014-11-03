@@ -1,4 +1,7 @@
 class ApplicationController < ActionController::Base
+
+	include Pundit
+
 	protect_from_forgery with: :null_session
 	respond_to :json
 
@@ -45,5 +48,9 @@ class ApplicationController < ActionController::Base
 
 		def render_error(exception)
 			render json: { error: exception.message, baktrace: exception.backtrace }.to_json, status: :internal_server_error
+		end
+
+		def permission_denied
+			head 403
 		end
 end

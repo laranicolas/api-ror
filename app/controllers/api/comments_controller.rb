@@ -1,6 +1,10 @@
 module Api
 	class CommentsController < ApplicationController
 
+		before_action :set_comment, only: [:show, :update, :destroy]
+
+		rescue_from Pundit::NotAuthorizedError, :with => :permission_denied
+
 		def index
 			@comments = Comment.all
 		end
@@ -38,6 +42,12 @@ module Api
 		end
 
 		private
+
+			def set_comment
+				@comment = Comment.find(params[:id] || params[:comment_id])
+				authorize @comment
+			end
+
 			def comment_params
 				params.require(:comment).permit(:body, :user_id, :blogPost_id)
 			end
