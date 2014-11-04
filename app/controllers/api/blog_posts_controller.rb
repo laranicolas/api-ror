@@ -1,6 +1,10 @@
 module Api
 	class BlogPostsController < ApplicationController
 
+		before_action :set_blog_post, only: [:show, :update, :destroy]
+
+		rescue_from Pundit::NotAuthorizedError, :with => :permission_denied
+
 		def index
 			@blog_posts = BlogPost.all
 		end
@@ -38,6 +42,12 @@ module Api
 		end
 
 		private
+
+			def set_blog_post
+				@blog_post = BlogPost.find(params[:id] || params[:blog_post_id])
+				authorize @blog_post
+			end
+
 			def blog_post_params
 				params.require(:blog_post).permit(:title, :body, :user_id)
 			end

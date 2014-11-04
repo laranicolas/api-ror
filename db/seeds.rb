@@ -54,32 +54,32 @@ blog_posts = BlogPost.create([
 comments = Comment.create([
 	{
 		body: "Comment by Nico Lara",
-		blogPost_id: blog_posts[0].id,
+		blog_post_id: blog_posts[0].id,
 		user_id: users[0].id
 	},
 	{
 		body: "Comment by Nico Lara",
-		blogPost_id: blog_posts[1].id,
+		blog_post_id: blog_posts[1].id,
 		user_id: users[0].id
 	},
 	{
 		body: "Comment by Nico Lara",
-		blogPost_id: blog_posts[2].id,
+		blog_post_id: blog_posts[2].id,
 		user_id: users[0].id
 	},
 	{
 		body: "Comment by Rodrigo Pavano",
-		blogPost_id: blog_posts[0].id,
+		blog_post_id: blog_posts[0].id,
 		user_id: users[1].id
 	},
 	{
 		body: "Comment by Rodrigo Pavano",
-		blogPost_id: blog_posts[1].id,
+		blog_post_id: blog_posts[1].id,
 		user_id: users[1].id
 	},
 	{
 		body: "Comment by Matthew Salerno",
-		blogPost_id: blog_posts[0].id,
+		blog_post_id: blog_posts[0].id,
 		user_id: users[3].id
 	}
 ])

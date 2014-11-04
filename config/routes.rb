@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
 
-  devise_for :users
-
   namespace :api do
     resources :users, :comments, :blog_posts
+
+    post 'sign_up', to: 'users#create'
+    post 'sign_in', to: 'sessions#create'
+    delete 'sign_out', to: 'sessions#destroy'
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

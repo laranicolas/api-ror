@@ -27,7 +27,12 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
 # Authentication
-gem 'devise'
+gem 'pundit'
+gem 'bcrypt'
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0.0'
+end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
